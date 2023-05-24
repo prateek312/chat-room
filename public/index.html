@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>WebSocket Chat Application</title>
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+	<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/ui-darkness/jquery-ui.css">
+	<link rel="stylesheet" href="jspanel/jquery.jspanel.min.css">
+	<style> 
+		.leftsp {margin-left:10px;}
+		#active_users li {padding:10px;}
+		#active_users li span:hover {color:green;}
+		#active_users li span {margin-right:10px;}
+		.chat_area_msg {min-height: 50px;background: #ccc;margin: 10px;padding: 5px;height: auto;-moz-border-radius: 5px;-webkit-border-radius: 5px;border-radius: 5px;-webkit-box-shadow: 0 2px 2px 0 #C2C2C2;box-shadow: 0 2px 2px 0 #C2C2C2;}
+		.chat_area_msg_head {font-size: 14px;font-weight: bold;height: 20px;}
+		.chat_area_msg_head .ts {font-size: 11px;font-weight: normal;font-style: italic;}
+		.chat_area_msg_body {margin: 5px;word-wrap: break-word;word-break: break-word;}
+		.chat_area_msg .name {float: left;}
+		.chat_area_msg .ts {float: right;}
+		.chat_area_msg .hr {height:1px;background:#000;}
+	
+		/* Updated styles */
+		body {
+		  background: #2644b3;
+		  padding-top: 10px;
+		  font-family: Arial, sans-serif; /* Change the font family */
+		}
+	
+		.panel-heading {
+		  font-size: 18px;
+		  font-weight: bold;
+		  color: #11556e; /* Change the font color */
+		  background-color: #400a4f; /* Change the background color */
+		}
+	
+		.app_panel_body {
+		  background-color: #062434; /* Change the background color */
+		}
+	
+		.form-control {
+		  font-size: 14px;
+		  color: #360f3d; /* Change the font color */
+		}
+	
+		.btn-primary {
+		  background-color: #333; /* Change the button background color */
+		  border-color: #333; /* Change the button border color */
+		}
+	
+		.btn-primary:hover {
+		  background-color: #df52cc; /* Change the button background color on hover */
+		  border-color: #555; /* Change the button border color on hover */
+		}
+	  </style>
+	
+</head>
+<body style="background:#42626e;padding-top:10px;">
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-xs-12 col-md-4">
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<strong>Online Users : (<span id="active_users_cn"></span>)
+					</div>
+					<div class="panel-body app_users">
+						<ul id="active_users" class="list-group"></ul>
+					</div>
+				</div>
+			</div>
+			<div class="col-xs-12 col-md-8">
+				<div class="panel panel-default">
+				  <div class="panel-heading"><strong>Public Chat Room</strong></div>
+				  <div class="panel-body app_panel_body">
+					<div class="chat_area"></div>
+				  </div>
+				  <div class="panel-footer">
+					<form class="form-inline" onsubmit="return false;">
+						<div class="form-group">
+							<input type="text" id="p_msg" class="form-control" placeholder="Enter your message">
+						</div>
+						<button type="submit" class="btn btn-primary" id="btnSendMsg">Send</button>
+					</form>
+				  </div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="log" style="display:none;">
+		<ul class="list-group"></ul>
+	</div>
+</body>
+<script src="//code.jquery.com/jquery-2.2.4.min.js"></script>
+<script src="//momentjs.com/downloads/moment-with-locales.min.js"></script>
+<script src="//code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<script src="jspanel/jquery.jspanel-compiled.min.js"></script>
+<script src="client.js"></script>
+</html>

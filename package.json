@@ -1,0 +1,33 @@
+{
+  "name": "websockets-chat-app",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "start": "nodemon server.https.js",
+    "test": "mocha --timeout 10000"
+  },
+  "main": "server.js",
+  "author": "Prateek Pandey",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "bad-words": "^3.0.4",
+    "body-parser": "^1.18.2",
+    "cookie-parser": "^1.4.3",
+    "cors": "^2.8.4",
+    "express": "^4.13.4",
+    "pem": "^1.12.3",
+    "uuid": "^3.1.0",
+    "ws": "^1.1.0"
+  },
+  "devDependencies": {
+    "morgan": "^1.9.0",
+    "nodemon": "^1.14.8"
+  },
+  "nodemonConfig": {
+    "ignore": [
+      "test/*",
+      "public/*"
+    ]
+  }
+}
